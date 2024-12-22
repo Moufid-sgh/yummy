@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;  
+  font-family: "Tajawal", serif;
+  font-style: normal;
+}
+
+
+@layer utilities {
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    appearance: textfield;
+  }
+
+  .footerBg {
+  background: linear-gradient(180deg, #1A1E22 0%, #000100 50%, #31363F 100%);
+}
+
+  .rubriqueTitle {
+    background: linear-gradient(270deg, #000100 21%, rgba(0, 1, 0, 0.1) 100%);
+    width: 100%;
+    height: 2px;
+  }
+
+  .categoryTitle {
+    color: rgba(102, 102, 102, 1);
+  }
+
+  .cardBorder {
+    border: 0.73px solid rgba(245, 245, 245, 1);
+    box-shadow: 0px 2px 6px 0px rgba(24, 49, 83, 0.17);
+  }
+
+  .bgDescCard {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 9%, rgba(24, 49, 83, 0.2) 30.5%, #183153 100%);
+  }
+
+  .cardShadow {
+    box-shadow: -4px 4px 32px 4px rgba(0, 1, 0, 0.1);
+  }
+
+  .linearBlackBtn {
+    background: linear-gradient(90.99deg, #000100 0%, #31363F 99.17%);
+  }
+
+  .loader {
+    border: 6px solid #f3f3f3;; 
+    border-top: 6px solid #FF4C29; 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .miniLoader {
+    border: 4px solid #f3f3f3;; 
+    border-top: 4px solid #FF4C29; 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: minispin 1s linear infinite;
+  }
+
+  @keyframes minispin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .inputRange {
+    background: linear-gradient(90deg, #FF4C29 0%, #E2E9F1 100%);
+    box-shadow: 0px 1px 2px 0px rgba(94, 93, 192, 1) inset;
+    border-radius: 8px;
+    height: 8px;
+  }
+
+
+
+/* Style du thumb -----------*/
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 50px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid rgba(243, 240, 227, 1);
+  border-radius: 24px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.05); 
+}
+
+
+input[type="range"]::-moz-range-thumb {
+  width: 50px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid rgba(243, 240, 227, 1);
+  border-radius: 24px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+input[type="range"].custom-range::-moz-range-thumb:hover {
+  transform: scale(1.05); 
+}
+
+
+  
+    /* caroussel------------------------------------- */
+    .embla {
+      max-width: 95%;
+      overflow: hidden;
+      margin: auto;
+      --slide-height: 19rem;
+      --slide-spacing: 1rem;
+      --slide-size: 100%;
+      --slide-spacing-sm: 2rem;
+      --slide-size-sm: 50%;
+      --slide-spacing-lg: 2rem;
+      --slide-size-lg: calc(100% / 3);
+    }
+  
+  
+    .embla__container {
+      backface-visibility: hidden;
+      display: flex;
+      align-items: start;
+      touch-action: pan-y pinch-zoom;
+      margin-left: 0;
+    }
+  
+  
+    @media (min-width: 750px) {
+      .embla__container {
+        margin-left: calc(var(--slide-spacing-sm) * -1);
+      }
+    }
+  
+    @media (min-width: 1200px) {
+      .embla__container {
+        margin-left: calc(var(--slide-spacing-lg) * -1);
+      }
+    }
+  
+  
+    
+    .embla__slide {
+      min-width: 0;
+      flex: 0 0 var(--slide-size);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    @media (min-width: 750px) {
+      .embla__slide {
+        flex: 0 0 var(--slide-size-sm);
+        padding-left: var(--slide-spacing-sm);
+      }
+    }
+  
+    @media (min-width: 1200px) {
+      .embla__slide {
+        flex: 0 0 var(--slide-size-lg);
+        padding-left: var(--slide-spacing-lg);
+      }
+    }
+  
+  
+  
+    /* for tags mobile view --------------------------------*/
+    @media (max-width: 768px) {
+      .tag-item:nth-child(n+11) {
+        display: none;
+      }
+    }
+}
