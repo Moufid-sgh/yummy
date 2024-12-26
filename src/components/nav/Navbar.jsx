@@ -10,15 +10,15 @@ import Menu from "./Menu"
 
 const Navbar = () => {
 
-  const [data, setData] = useState(null); 
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://yahalawa.net/api/orange/menu');
-       
+
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -37,36 +37,41 @@ const Navbar = () => {
 
 
 
-    return (
-        <nav dir="rtl">
+  return (
+    <nav dir="rtl">
 
-            <div className="flex items-center justify-between px-3 md:px-8 lg:px-32 py-8 z-50">
-                {/* for desktop--------------------------------------- */}
-                <Menu  />
-                {/* -------------------------------------------------- */}
+      <div className="flex items-center justify-between px-3 md:px-8 lg:px-32 py-8 z-50">
+        {/* for desktop--------------------------------------- */}
+        <div className="hidden lg:flex w-1/3">
+          <Menu />
+        </div>
+        {/* -------------------------------------------------- */}
 
-                {/* for mobile-------------------------------------- */}
-                <HamburgerMenu data={data} />
-                {/* ------------------------------------------------ */}
+        {/* for mobile-------------------------------------- */}
+        <HamburgerMenu data={data} />
+        {/* ------------------------------------------------ */}
 
 
-                <Link to="/" className="w-1/3">
-                    <img
-                        src={logo}
-                        className='w-36 lg:w-56 cursor-pointer'
-                        alt="logo"
-                    />
-                </Link>
+        <Link to="/" className="w-1/3 flex justify-center">
+          <img
+            src={logo}
+            className='w-36 lg:w-56 cursor-pointer'
+            alt="logo"
+          />
+        </Link>
 
-                <img
-                    src={orange}
-                    alt="orange"
-                />
-            </div>
+        <div className="w-1/3 flex justify-end">
+          <img
+            src={orange}
+            alt="orange"
+            className="w-12 lg:w-auto"
+          />
+        </div>
+      </div>
 
-            <Navigation data={data} />
-        </nav>
-    )
+      <Navigation data={data} />
+    </nav>
+  )
 }
 
 export default Navbar

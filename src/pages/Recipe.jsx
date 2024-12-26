@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom"
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import SecondPart from '@/components/recipe/SecondPart';
 import Save from "@/components/Save"
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -11,10 +11,35 @@ const Recipe = () => {
 
   const { id } = useParams();
 
+
+    //get container height
+    const containerRef = useRef()
+
+    const [getHeight, setGetHeight] = useState(0);
+  
+    useEffect(() => {
+      const observer = new ResizeObserver((entries) => {
+        if (entries[0]) {
+          setGetHeight(entries[0].contentRect.height);
+        }
+      });
+  
+      if (containerRef.current) {
+        observer.observe(containerRef.current);
+      }
+  
+      return () => {
+        if (containerRef.current) {
+          observer.unobserve(containerRef.current);
+        }
+      };
+    }, []);
+
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [totalLoading, setTotalLoading] = useState(false);
+  
 
   //fetch data 
   useEffect(() => {
@@ -44,22 +69,6 @@ const Recipe = () => {
   const sortedSteps = data?.steps.sort((a, b) => a.step - b.step);
 
 
-  //get container height
-  const containerRef = useRef()
-
-  const [getHeight, setGetHeight] = useState(0);
-
-  useEffect(() => {
-    const h = containerRef.current.getBoundingClientRect()
-    setGetHeight(h.height)
-  }, [])
-
-
-  //dispaly  && group ingredeint by title
-  const groupedIng = data?.ingredients ? Object.groupBy(data.ingredients, (p) => p.title) : {};
-
-  const groupSteps = sortedSteps ? Object.groupBy(sortedSteps, (p) => p.title) : {};
-  
 
 
   return (
@@ -141,7 +150,6 @@ const Recipe = () => {
 
 
         </section>
-
 
 
         {/* video fo desktop---------------------------------------------------------------------------*/}

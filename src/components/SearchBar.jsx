@@ -3,6 +3,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Suspense, useState, useRef, useTransition, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton"
 import ThumbComponent from "./ThumbComponent";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -32,7 +33,7 @@ const SearchBar = () => {
                 setResults(data);
 
                 // dispaly message for no results
-                if (results.recipes.length == 0 && results.tips.length == 0) {
+                if (results.recipes?.length === 0 && results.tips?.length === 0) {
                     setNoResults(false)
                 };
 
@@ -90,11 +91,11 @@ const SearchBar = () => {
       };
 
 
-    //   const router = useRouter();
+      const navigate = useNavigate();
 
       //redirect user to recipe page 
       const gotTo =  (id) => {
-        // router.push(`/recipe/${id}`)
+        navigate(`/recipe/${id}`)
         handleSheetClose()
       };
 
@@ -133,7 +134,7 @@ const SearchBar = () => {
 
                 <section className="mt-10">
                     {isPending ?
-                        <div className="flex items-center justify-center h-[400px]">
+                        <div className="flex items-center justify-center h-[800px]">
                             <div className="loader"></div>
                         </div>
                         :

@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useTransition } from "react"
-// import { useRouter } from 'next/navigation'
 import { toast } from "sonner"
-
+import { useAuth } from "@/components/authContext"
 
 const Page = () => {
+
+    const { setIsAuthenticated } = useAuth();
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -48,6 +49,8 @@ const Page = () => {
                         localStorage.setItem("name", data.user.name);
                         localStorage.setItem("phone", data.user.phone_number);
                         localStorage.setItem("id", data.user.id);
+                        localStorage.setItem('token', data.token);
+                        setIsAuthenticated(true);
                         navigate('/')
                     } else {
                         console.error("Login failed:", data.error);

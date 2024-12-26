@@ -12,9 +12,9 @@ const RecipeCard = ({ el }) => {
         <div dir="rtl" className="relative w-[280px] mx-10 my-6 group">
 
             <Link to={`/recipe/${el.id}`}>
-                <div className="relative cardShadow ">
+                <div className="relative cardShadow overflow-hidden">
                 
-                    <ImageComponent src={el.imgPath} className="object-cover w-[280px] h-[350px] rounded-sm cardBorder group-hover:scale-[1.02] transition-all duration-500" />
+                    <ImageComponent src={el.imgPath} className="object-cover w-[280px] h-[350px] cardBorder group-hover:scale-[1.02] transition-all duration-500" />
 
                     <Save recipeId={recipeId} />
                 </div>

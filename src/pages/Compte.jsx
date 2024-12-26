@@ -1,10 +1,13 @@
-// import { useRouter } from "next/navigation"
 import { useState, useTransition, useEffect, useRef } from "react"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "@/components/authContext"
 
 
 const Page = () => {
 
-    // const router = useRouter()
+    const { setIsAuthenticated } = useAuth();
+
+    const navigate = useNavigate()
 
     const [isPending, startTransition] = useTransition()
 
@@ -63,18 +66,27 @@ const Page = () => {
     const logout = async (e) => {
         e.preventDefault();
 
-            try {
-                const response = await fetch('http://localhost:3000/api/orange/logout', {
-                    method: 'GET',
-                    credentials: 'include',
-                });
+            // try {
+            //     const response = await fetch('http://localhost:3000/api/orange/logout', {
+            //         method: 'GET',
+            //         credentials: 'include',
+            //     });
 
-                if (response.ok) {
-                    // router.push('/login');
-                    localStorage.clear()
-                } else {
-                    console.error('Logout failed');
-                }
+            //     if (response.ok) {
+            //         navigate('/login');
+            //         localStorage.clear()
+            //         setIsAuthenticated(false);
+            //     } else {
+            //         console.error('Logout failed');
+            //     }
+            // } catch (error) {
+            //     console.error('Logout error:', error);
+            // }
+
+            try {
+                navigate('/login');
+                localStorage.clear()
+                setIsAuthenticated(false);
             } catch (error) {
                 console.error('Logout error:', error);
             }

@@ -34,12 +34,7 @@ const GetRandomRecipes = () => {
     return (
         <div dir="rtl" className="flex items-center justify-center flex-wrap w-full">
             {Array.isArray(data) && data.map((el) => {
-                return (
-                            <RandomRecipeCard 
-                                key={el.id}
-                                el={el} 
-                                />
-                )
+                return <RandomRecipeCard key={el.id} el={el} />
             })}
         </div>
     )

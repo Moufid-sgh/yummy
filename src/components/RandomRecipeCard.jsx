@@ -11,10 +11,10 @@ const RandomRecipesCard = ({ el, session }) => {
 
 
     return (
-        <div dir="rtl" className="relative w-[280px] h-[350px] mx-10 md:mx-10 my-6 group overflow-hidden cardShadow">
+        <div dir="rtl" className="relative w-[280px] h-[350px] mx-10 my-6 group overflow-hidden cardShadow">
             <Link to={(el.is_paying === 'T-Telecom' ) ? '/login' : `/recipe/${el.id}`}>
 
-                <ImageComponent src={el.imgPath} className="object-cover rounded-sm cardBorder group-hover:scale-[1.02] duration-500" />
+                <ImageComponent src={el.imgPath} className="object-cover w-[280px] h-[350px] rounded-sm cardBorder group-hover:scale-[1.02] transition-all duration-500" />
 
                 <Save recipeId={recipeId} userId={userId} />
             </Link>

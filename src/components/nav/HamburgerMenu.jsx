@@ -111,7 +111,7 @@ const HamburgerMenu = ({ data }) => {
 
 
     return (
-        <div className="lg:hidden">
+        <div className="lg:hidden w-1/3">
             <Sheet open={isOpen} onOpenChange={handleSheetStateChange}>
                 <SheetTrigger className="space-y-1">
                     <p className="bg-blue w-8 h-1.5 rounded-xl"></p>
