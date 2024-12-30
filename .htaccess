@@ -1,0 +1,18 @@
+# Rediriger toutes les requêtes vers index.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+
+# Activer le streaming progressif pour les fichiers vidéo
+<IfModule mod_headers.c>
+  <FilesMatch "\.(mp4|webm)$">
+      Header set Accept-Ranges bytes
+      Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>

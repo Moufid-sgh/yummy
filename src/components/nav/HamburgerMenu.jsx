@@ -6,7 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Suspense, useState, useRef, useTransition, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton"
 import ThumbComponent from "../ThumbComponent";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const HamburgerMenu = ({ data }) => {
@@ -109,6 +109,12 @@ const HamburgerMenu = ({ data }) => {
         setIsOpen(false)
     };
 
+    //redirect user to selected page 
+    const gotToSelectedPage = (route) => {
+        navigate(`${route}`)
+        setIsOpen(false)
+    };
+
 
     return (
         <div className="lg:hidden w-1/3">
@@ -132,7 +138,7 @@ const HamburgerMenu = ({ data }) => {
                                                 return (
                                                     <p onClick={() => gotToCategory(el.title)}
                                                         key={el.id}
-                                                        className="my-1 hover:text-orange duration-300 cursor-pointer"
+                                                        className="my-1 hover:text-orange text-[18px] duration-300 cursor-pointer"
                                                     >
                                                         {el.title}
                                                     </p>
@@ -162,17 +168,17 @@ const HamburgerMenu = ({ data }) => {
                             </Accordion>
 
 
-                            <Link to="/MyRecipes" className="text-lg font-medium hover:underline">
+                            <p onClick={() => gotToSelectedPage('/MyRecipes')} className="text-[20px] font-medium hover:underline cursor-pointer">
                                 الموندو متاعي
-                            </Link>
+                            </p>
 
-                            <Link to="/notifications" className="text-lg font-medium hover:underline">
+                            <p onClick={() => gotToSelectedPage('/notifications')} className="text-[20px] font-medium hover:underline cursor-pointer">
                                 إشعاراتي
-                            </Link>
+                            </p>
 
-                            <Link to="/compte" className="text-lg font-medium hover:underline">
+                            <p onClick={() => gotToSelectedPage('/compte')} className="text-[20px] font-medium hover:underline cursor-pointer">
                                 حسابي
-                            </Link>
+                            </p>
 
                         </div>
 

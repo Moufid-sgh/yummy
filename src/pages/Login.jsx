@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useState, useTransition } from "react"
 import { toast } from "sonner"
 import { useAuth } from "@/components/authContext"
@@ -15,8 +15,11 @@ const Page = () => {
     const [password, setPassword] = useState('')
     const [isChecked, setIsChecked] = useState(false);
 
+    
+    //redirection after login
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     function handleSignIn(e) {
 
@@ -51,7 +54,7 @@ const Page = () => {
                         localStorage.setItem("id", data.user.id);
                         localStorage.setItem('token', data.token);
                         setIsAuthenticated(true);
-                        navigate('/')
+                        navigate(from, { replace: true });
                     } else {
                         console.error("Login failed:", data.error);
                     }

@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator"
 
 
 
-const SecondPart = ({ ingredients, ustensiles, nbr_serves, ingredient_title, sortedSteps }) => {
+const SecondPart = ({ ingredients, ustensiles, nbr_serves, sortedSteps }) => {
 
     const setpsRef = useRef(null);
 
@@ -29,8 +29,6 @@ const SecondPart = ({ ingredients, ustensiles, nbr_serves, ingredient_title, sor
             return quantity;
         }
     };
-
-
 
 
 
@@ -108,7 +106,7 @@ const SecondPart = ({ ingredients, ustensiles, nbr_serves, ingredient_title, sor
                 <div className="flex items-center my-7">
 
                     <div className="flex flex-col lg:flex-row lg:items-center w-full">
-                        <label className="flex items-center lg:w-[20%] mb-4 lg:mb-0">
+                        <label className="flex items-center lg:w-[20%] mb-4 lg:mb-0 ml-4">
                             <p className="whitespace-nowrap">عدد الحصص</p>
                             <p className="mr-2 text-xl">{persons}</p>
                         </label>
@@ -141,7 +139,7 @@ const SecondPart = ({ ingredients, ustensiles, nbr_serves, ingredient_title, sor
                                     <p className="h-0.5 w-full bg-orange"></p>
                                 </div>
                             } 
-                            <ul className="list-decimal marker:text-[#FF4B91] text-[#00235B] text-[16px] md:text-[18px]">
+                            <ul className="list-decimal marker:text-orange text-[#00235B] text-[16px] md:text-[18px]">
                                 {items.map((item, index) => (
                                     <li key={index} className="flex items-center text-darkblue text-[18px] py-2 border-b border-gray space-x-2 lg:space-x-6">
                                         <p className="w-24 lg:w-20">{formatNumber(getUpdatedQuantity(item.qte_gramme))}</p>
@@ -169,7 +167,7 @@ const SecondPart = ({ ingredients, ustensiles, nbr_serves, ingredient_title, sor
                     <p className='rubriqueTitle'></p>
                 </div>
 
-                <ol className="mt-4 mr-4 list-decimal marker:text-[#FF4B91] text-[18px]">
+                <ol className="mt-4 mr-4 list-decimal marker:text-orange text-[18px]">
                     {
                         Array.isArray(ustensiles) && ustensiles.map((el) => {
                             return <li key={el.id} className="my-3">{el.title}</li>
@@ -190,7 +188,7 @@ const SecondPart = ({ ingredients, ustensiles, nbr_serves, ingredient_title, sor
                     {Object.entries(groupedSteps).map(([title, descriptions]) => (
                         <div key={title} className="mb-4">
                             {title && <p className="text-lg font-semibold mb-2">{title}</p>}
-                            <ol className="list-decimal marker:text-[#FF4B91] text-[18px]">
+                            <ol className="list-decimal marker:text-orange text-[18px]">
                                 {descriptions.map((desc, index) => (
                                     <li key={index} className="text-gray-700 mt-3">{desc}</li>
                                 ))}

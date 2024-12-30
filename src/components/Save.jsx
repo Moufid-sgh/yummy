@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-
+import { toast } from "sonner"
+import { useAuth } from "./authContext";
 
 const Save = ({ recipeId }) => {
 
+   const { setNeedsUpdate } = useAuth()
 
     const [isSaved, setIsSaved] = useState(false);
 
@@ -46,7 +48,7 @@ const Save = ({ recipeId }) => {
     }, [userId, recipeId])
 
 
-    //handle save-----------------------------------//
+    //handle save---------------------------------------------//
     const handleSave = async () => {
 
         try {
@@ -63,6 +65,12 @@ const Save = ({ recipeId }) => {
 
             if (response.ok) {
                 setIsSaved((prev) => !prev)
+                setNeedsUpdate((prev) => !prev);
+                if(data.saved) {
+                return toast.info('برافو عليك ! الوصفة أتسجلت في دوسي الموندو متاعي !')
+            } else{
+                return toast.info('أهوكة الوصفة اتنحات من الموندو متاعي !')
+            }
             } else {
                 console.error("save failed:", data.error);
             }

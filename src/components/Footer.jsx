@@ -35,7 +35,7 @@ const Footer = () => {
       <section className="text-sm mt-8 space-y-2">
         <Link to="/yummy_terms" className="hover:text-orange duration-300">الشروط العامة للبيع والإستخدام خدمة “ Yummy صنافة ” من أورنج.</Link>
         <p>يمكنك إلغاء إشتراكك في خدمة “ Yummy صنافة ”  من أورنج بإرسال STOP إلى 85523.</p>
-        <p>جميع حقوق النشر محفوظة لموقع “ Yummy صنافة ”. “ Yummy صنافة ”, علامة ليدر بوب <span>{new Date().getFullYear()}-2024©</span></p>
+        <p>جميع حقوق النشر محفوظة لموقع “ Yummy صنافة ”. “ Yummy صنافة ”, علامة ليدر بوب <span>{new Date().getFullYear()}-2024 ©</span></p>
       </section>
     </footer>
   )

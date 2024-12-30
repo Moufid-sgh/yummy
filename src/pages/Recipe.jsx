@@ -69,8 +69,6 @@ const Recipe = () => {
   const sortedSteps = data?.steps.sort((a, b) => a.step - b.step);
 
 
-
-
   return (
     <main className="flex min-h-screen flex-col px-6 md:px-8 lg:px-32 py-8">
       <div dir="rtl" ref={containerRef} className="lg:flex items-start justify-between mt-8 pb-4 w-full">
@@ -153,7 +151,7 @@ const Recipe = () => {
 
 
         {/* video fo desktop---------------------------------------------------------------------------*/}
-        <div className="hidden lg:block w-[338px]" style={{ height: getHeight }}>
+        {totalLoading && <div className="hidden lg:block w-[338px]" style={{ height: getHeight }}>
           <div className="relative flex items-center justify-center lg:sticky lg:top-7">
             <video className="w-[338px] h-[600px]"
               poster={data?.imgPath}
@@ -163,7 +161,7 @@ const Recipe = () => {
             </video>
             <Save recipeId={data?.id} />
           </div>
-        </div>
+        </div>}
       </div>
 
 

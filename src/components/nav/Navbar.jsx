@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <nav dir="rtl">
 
-      <div className="flex items-center justify-between px-3 md:px-8 lg:px-32 py-8 z-50">
+      <div className="flex items-center justify-between px-3 md:px-8 lg:px-32 lg:py-8 pt-8 z-50">
         {/* for desktop--------------------------------------- */}
         <div className="hidden lg:flex w-1/3">
           <Menu />
@@ -55,7 +55,7 @@ const Navbar = () => {
         <Link to="/" className="w-1/3 flex justify-center">
           <img
             src={logo}
-            className='w-36 lg:w-56 cursor-pointer'
+            className='w-36 lg:w-60 cursor-pointer'
             alt="logo"
           />
         </Link>

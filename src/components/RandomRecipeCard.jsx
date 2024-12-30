@@ -20,7 +20,7 @@ const RandomRecipesCard = ({ el, session }) => {
             </Link>
 
             <div className="absolute bottom-0  text-white p-2 w-full bgDescCard">
-                    <p className="mr-10 text-[22px] w-64 line-clamp-2">{el.title}</p>
+                    <p className="mr-10 text-[22px] w-56 line-clamp-2">{el.title}</p>
             </div>
         </div>
     )

@@ -33,7 +33,7 @@ const SearchBar = () => {
                 setResults(data);
 
                 // dispaly message for no results
-                if (results.recipes?.length === 0 && results.tips?.length === 0) {
+                if (data.recipes?.length === 0 && data.tips?.length === 0) {
                     setNoResults(false)
                 };
 
@@ -138,7 +138,7 @@ const SearchBar = () => {
                             <div className="loader"></div>
                         </div>
                         :
-                        <ScrollArea dir="rtl" className="h-[500px]">
+                        <ScrollArea dir="rtl" className="h-[700px]">
                             {
                                 Array.isArray(results.recipes) && results.recipes.map(el => {
                                     return (

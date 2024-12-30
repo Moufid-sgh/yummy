@@ -6,14 +6,14 @@ const Home = () => {
 
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-3 md:px-8 lg:px-32 py-8">
+    <main className="flex min-h-screen flex-col items-center px-3 md:px-8 lg:px-32 lg:py-8 py-4">
 
       <Rubrique />
 
       {/* أكيد باش يعجبوك --------------------------------------------------------- */}
       <section className="w-full mb-16">
         <div className='text-end'>
-          <p className='text-orange text-3xl mb-2'>! أكيد باش يعجبوك</p>
+          <p className='text-orange text-3xl mb-2'>ما نحيروش في التصنيف</p>
           <p className='rubriqueTitle'></p>
         </div>
         <ErrorBoundary>

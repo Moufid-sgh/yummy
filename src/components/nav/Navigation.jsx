@@ -13,8 +13,7 @@ const Navigation = ({ data }) => {
 
 
     return (
-        <div className="hidden lg:block text-lg mt-6 z-50">
-
+        <div className="hidden lg:flex items-center justify-center text-lg mt-2 z-50">
 
             <NavigationMenu>
                 <NavigationMenuList>

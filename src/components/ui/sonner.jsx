@@ -10,7 +10,7 @@ const Toaster = ({ ...props }) => {
             className="toaster group"
             toastOptions={{
                 classNames: {
-                    toast: "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+                    toast: "text-[17px] w-[500px] group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
                     description: "group-[.toast]:text-muted-foreground",
                     actionButton:
                         "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
@@ -19,9 +19,9 @@ const Toaster = ({ ...props }) => {
                 },
             }}
             icons={{
-                success: <CheckCircle className="size-5 text-green" />,
-                info: <Info className="size-5 text-blue" />,
-                error: <XCircle className="size-5 text-red" />,
+                success: <CheckCircle className="size-5 2xl:size-6 text-green" />,
+                info: <Info className="size-5 2xl:size-6 text-blue" />,
+                error: <XCircle className="size-5 2xl:size-6 text-red" />,
             }}
             {...props}
         />

@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider, Navigate, useLocation } from "react-router-dom";
-
 import Login from './pages/Login.jsx';
 import Compte from './pages/Compte.jsx';
 import Home from './pages/Home.jsx';
@@ -26,7 +25,7 @@ const ProtectedRoute = ({ children }) => {
   const location = useLocation();
 
   if (isAuthenticated === null) {
-    return <div>Chargement...</div>;
+    return <div className="flex items-center justify-center"><p className='loader'></p></div>;
   }
 
   if (!isAuthenticated) {

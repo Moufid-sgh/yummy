@@ -3,8 +3,9 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    
     const [isAuthenticated, setIsAuthenticated] = useState(null);
-
+    const [needsUpdate, setNeedsUpdate] = useState(false);
         
     useEffect(() => {
 
@@ -42,6 +43,8 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider value={{
             isAuthenticated,
             setIsAuthenticated,
+            needsUpdate, 
+            setNeedsUpdate
         }}>
             {children}
         </AuthContext.Provider>
