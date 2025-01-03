@@ -138,7 +138,7 @@ const SearchBar = () => {
                             <div className="loader"></div>
                         </div>
                         :
-                        <ScrollArea dir="rtl" className="h-[700px]">
+                        <ScrollArea dir="rtl" className="h-[500px] 2xl:h-[700px]">
                             {
                                 Array.isArray(results.recipes) && results.recipes.map(el => {
                                     return (

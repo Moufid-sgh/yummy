@@ -116,7 +116,7 @@ const SecondPart = ({ ingredients, ustensiles, nbr_serves, sortedSteps }) => {
                             id="slider"
                             type="range"
                             min="1"
-                            max="10"
+                            max="30"
                             value={persons}
                             data-value={persons}
                             onChange={(e) => handlePersonsChange(parseInt(e.target.value) - persons)}

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import RecipeCard from "@/components/RecipeCard"
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from './authContext';
+import ErrorBoundary from './ErrorBoundary';
 
 
 const MyRecipesData = () => {
@@ -135,20 +136,22 @@ const MyRecipesData = () => {
 
       {/* recipes--------------------------------------------------------------------------------- */}
       <section className="flex flex-wrap justify-center items-start w-full my-6">
-        <AnimatePresence>
-          {
-            getFilteredRecipes()?.map((el) => {
-              return (
-                <motion.div
-                  key={el.id}
-                  {...AnimationSettings}
-                >
-                  <RecipeCard el={el} />
-                </motion.div>
-              )
-            })
-          }
-        </AnimatePresence>
+        <ErrorBoundary>
+          <AnimatePresence>
+            {
+              getFilteredRecipes()?.map((el) => {
+                return (
+                  <motion.div
+                    key={el.id}
+                    {...AnimationSettings}
+                  >
+                    <RecipeCard el={el} />
+                  </motion.div>
+                )
+              })
+            }
+          </AnimatePresence>
+        </ErrorBoundary>
       </section>
 
 

@@ -104,6 +104,22 @@ body{
     height: 8px;
   }
 
+  /* like animation */
+  .heart {
+    animation: heart-bounce .5s cubic-bezier(.7,0,.3,1);
+  }
+
+  @keyframes heart-bounce {
+    40% {
+      -webkit-transform: scale(0.6);
+              transform: scale(0.6);
+    }
+    0%, 80%, 100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+
 
 
 /* Style du thumb -----------*/

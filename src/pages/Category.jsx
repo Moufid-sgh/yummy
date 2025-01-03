@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import RecipeCard from '@/components/RecipeCard'
 import ErrorBoundary from '@/components/ErrorBoundary'
-
+import { motion, AnimatePresence } from "framer-motion";
 
 const Category = () => {
 
@@ -31,10 +31,16 @@ const Category = () => {
         };
 
         fetchData();
-    }, []);
+    }, [category]);
 
 
-    console.log("first", data)
+    //animation   
+    const AnimationSettings = {
+        transition: { duration: 0.5, ease: "easeInOut" },
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -20 }
+    };
 
 
     return (
@@ -49,16 +55,20 @@ const Category = () => {
 
             <section className="flex flex-wrap justify-center items-start w-full my-6">
                 <ErrorBoundary>
-                    {
-                        Array.isArray(data) && data.map((el) => {
-                            return (
-                                <RecipeCard
-                                    key={el.id}
-                                    el={el}
-                                />
-                            )
-                        })
-                    }
+                    <AnimatePresence>
+                        {
+                            Array.isArray(data) && data.map((el) => {
+                                return (
+                                    <motion.div
+                                        key={el.id}
+                                        {...AnimationSettings}
+                                    >
+                                        <RecipeCard el={el} />
+                                    </motion.div>
+                                )
+                            })
+                        }
+                    </AnimatePresence>
                 </ErrorBoundary>
             </section>
 

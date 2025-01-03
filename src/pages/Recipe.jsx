@@ -136,7 +136,6 @@ const Recipe = () => {
 
           {/* ingredient & preparation & steps------------------------------------------------------------ */}
           <ErrorBoundary>
-            
             {totalLoading && <SecondPart
               ingredients={data?.ingredients}
               ustensiles={data?.ustensiles}
