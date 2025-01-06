@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer dir='rtl' className="footerBg w-full text-white px-3 md:px-8 lg:px-32 py-8">
       <section>
-        <p className="text-sm mb-4">تلشرجي توا طبيقة يامي صنافة !</p>
+        <p className="text-sm mb-4">تلشرجي توا طبيقة يّامي صنافة !</p>
         <div className="flex items-center mt-8 lg:mt-0">
           <Link to="" className="hover:scale-[1.03] duration-300">
             <img
@@ -35,7 +35,7 @@ const Footer = () => {
       <section className="text-sm mt-8 space-y-2">
         <Link to="/yummy_terms" className="hover:text-orange duration-300">الشروط العامة للبيع والإستخدام خدمة “ Yummy صنافة ” من أورنج.</Link>
         <p>يمكنك إلغاء إشتراكك في خدمة “ Yummy صنافة ”  من أورنج بإرسال STOP إلى 85523.</p>
-        <p>جميع حقوق النشر محفوظة لموقع “ Yummy صنافة ”. “ Yummy صنافة ”, علامة ليدر بوب <span>{new Date().getFullYear()}-2024 ©</span></p>
+        <p>جميع حقوق النشر محفوظة لموقع “ Yummy صنافة ”. “ Yummy صنافة ”, علامة ليدر بوب <span>2024-{new Date().getFullYear()} ©</span></p>
       </section>
     </footer>
   )

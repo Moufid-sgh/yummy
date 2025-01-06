@@ -15,7 +15,7 @@ const Page = () => {
     const [password, setPassword] = useState('')
     const [isChecked, setIsChecked] = useState(false);
 
-    
+
     //redirection after login
     const navigate = useNavigate();
     const location = useLocation();
@@ -28,7 +28,7 @@ const Page = () => {
         startTransition(async () => {
 
             if (!phone_number || !password) {
-                return toast.error('من فضلك، تأكد من ملء جميع الحقول لإكمال تسجيل الدخول')
+                return toast.info('من فضلك، تأكد من ملء جميع الحقول لإكمال تسجيل الدخول')
             }
 
             if (!isChecked) {
@@ -81,7 +81,7 @@ const Page = () => {
             <form dir="rtl" className="mt-8 w-full flex justfiy-start">
                 <section className="lg:w-72">
                     <div className="relative mt-5">
-                        <label className="text-sm text-[#262F82]" htmlFor="number">رقم الجوال أورنج</label>
+                        <label className="text-[#262F82]" htmlFor="number">رقم الجوال أورنج</label>
                         <input
                             id="number"
                             type="number"
@@ -96,7 +96,7 @@ const Page = () => {
                     </div>
 
                     <div className="relative mt-5">
-                        <label className="text-sm text-[#262F82]" htmlFor="pwd">كلمة المرور </label>
+                        <label className="text-[#262F82]" htmlFor="pwd">كلمة المرور </label>
                         <input
                             id="pwd"
                             type={showPassword ? 'text' : 'password'}
@@ -116,10 +116,10 @@ const Page = () => {
                         </div>
                     </div>
 
-                    <div className="mt-5 mb-4 text-sm">
+                    <div className="mt-5 mb-4">
                         <input id="terms" type="checkbox" onChange={(e) => setIsChecked(e.target.checked)} className="w-4 h-4 cursor-pointer" required />
                         <label htmlFor="terms" className="mr-2">لقد قرأت و وافقت على </label>
-                        <Link to="" className="text-[#007AFF]">الشروط العامة للبيع والإستخدام خدمة يامي صنافة.</Link>
+                        <Link to="" className="text-[#007AFF]">الشروط العامة للبيع والإستخدام خدمة يّامي صنافة.</Link>
                     </div>
 
 

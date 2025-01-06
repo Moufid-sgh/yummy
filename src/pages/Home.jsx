@@ -11,7 +11,7 @@ const Home = () => {
       <Rubrique />
 
       {/* أكيد باش يعجبوك --------------------------------------------------------- */}
-      <section className="w-full mb-16">
+      <section className="w-full mb-16 mt-6">
         <div className='text-end'>
           <p className='text-orange text-3xl mb-2'>ما نحيروش في التصنيف</p>
           <p className='rubriqueTitle'></p>
