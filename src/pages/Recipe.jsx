@@ -75,16 +75,17 @@ const Recipe = () => {
         <section className="flex-1">
 
           {/* video fo mobile---------------------------------------------------------------------------*/}
-          <div className="lg:hidden mb-12">
-            <div className="flex items-center justify-center">
+          {totalLoading && <div className="lg:hidden mb-12">
+            <div className="relative flex items-center justify-center">
               <video className="w-[338px] h-[600px]"
                 poster={data?.imgPath}
                 controls
                 preload="metadata">
                 <source src={data?.videoPath} type="video/mp4" />
               </video>
+              <Save recipeId={data?.id} />
             </div>
-          </div>
+          </div>}
 
           <div className="mb-10 lg:mb-0">
             <div className="lg:w-[60%]">
@@ -118,12 +119,12 @@ const Recipe = () => {
                 <div className="flex items-center">
                 <Separator className="w-0.5 h-3.5 bg-[#00235B40]" />
                   <div className="flex items-center px-3 lg:px-4">
-                    <p>وقت التحضير</p>
+                    <p className='whitespace-nowrap'>وقت التحضير</p>
                     <p className="mr-1 lg:mr-2 whitespace-nowrap">{data?.preparation_time} دق</p>
                   </div>
                   <Separator className="w-0.5 h-3.5 bg-[#00235B40]" />
                   <div className="flex items-center px-3 lg:px-4">
-                    <p>الوقت الاجمالي</p>
+                    <p className='whitespace-nowrap'>الوقت الاجمالي</p>
                     <p className="mr-1 lg:mr-2 whitespace-nowrap">{data?.total_time} دق</p>
                   </div>
                   <Separator className="w-0.5 h-3.5 bg-[#00235B40]" />

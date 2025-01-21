@@ -23,7 +23,7 @@ const RecipeCard = ({ el }) => {
             <div className="p-2">
                 <p className="text-[22px] w-64 overflow-hidden line-clamp-2 leading-7 mt-2">{el.title}</p>
 
-                <Link to={`/recipe_category/${el.category[0]?.title}`}
+                <Link to={`/category/${el.category[0]?.title}`}
                     className="categoryTitle text-lg mt-1.5 block hover:opacity-70 duration-300 w-fit"
                 >
                     {el.category && el.category[0]?.title}
