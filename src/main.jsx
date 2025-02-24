@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <ProtectedRoute><Home /></ProtectedRoute>
       },
       {
         path: 'compte',
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'category/:category',
-        element: <Category />
+        element: <ProtectedRoute><Category /></ProtectedRoute>
       },
       {
         path: 'recipe/:id',
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'notifications',
-        element: <Notifications />
+        element: <ProtectedRoute><Notifications /></ProtectedRoute>
       },
     ],
     errorElement: <NotFound />

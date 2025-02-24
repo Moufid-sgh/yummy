@@ -5,7 +5,7 @@ import { useAuth } from "@/components/authContext"
 
 const Page = () => {
 
-    const { setIsAuthenticated } = useAuth();
+    const { setIsAuthenticated, setCurrentName } = useAuth();
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -15,14 +15,12 @@ const Page = () => {
     const [password, setPassword] = useState('')
     const [isChecked, setIsChecked] = useState(false);
 
-
     //redirection after login
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
     function handleSignIn(e) {
-
         e.preventDefault();
 
         startTransition(async () => {
@@ -42,22 +40,30 @@ const Page = () => {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/json',
+                            'Accept': 'application/json',
                         },
                         body: JSON.stringify({ phone_number, password }),
                     });
 
+
+
                     const data = await response.json();
+                    console.log(data)
+
+                    if(data.status === "error") {
+                        return toast.error("بيانات اعتماد غير صالحة");
+                    }
 
                     if (response.ok) {
+                        setCurrentName(data.user.name);
                         localStorage.setItem("name", data.user.name);
                         localStorage.setItem("phone", data.user.phone_number);
                         localStorage.setItem("id", data.user.id);
                         localStorage.setItem('token', data.token);
                         setIsAuthenticated(true);
                         navigate(from, { replace: true });
-                    } else {
-                        console.error("Login failed:", data.error);
-                    }
+                    } 
+
                 } catch (error) {
                     console.log(error)
                 }
@@ -81,13 +87,13 @@ const Page = () => {
             <form dir="rtl" className="mt-8 w-full flex justfiy-start">
                 <section className="lg:w-72">
                     <div className="relative mt-5">
-                        <label className="text-[#262F82]" htmlFor="number">رقم الجوال أورنج</label>
+                        <label className="text-[#262F82]" htmlFor="number">رقم الجوال Ooredoo</label>
                         <input
                             id="number"
                             type="number"
                             name="phone_number"
                             onChange={(e) => setPhone(e.target.value)}
-                            placeholder="رقم الجوال أورنج"
+                            placeholder="رقم الجوال Ooredoo"
                             className="bg-[#007AFF0D] border border-[#262F82] rounded-[3px] py-3 px-4 mt-1 w-full outline-none focus:ring-[0.8px] focus:ring-ringblue"
                         />
                         <svg className="absolute left-4 top-[45px] text-[#262F82] size-4" width="12" height="19" viewBox="0 0 12 19" fill="#262F82" xmlns="http://www.w3.org/2000/svg">

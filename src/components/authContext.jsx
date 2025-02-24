@@ -6,6 +6,7 @@ export const AuthProvider = ({ children }) => {
     
     const [isAuthenticated, setIsAuthenticated] = useState(null);
     const [needsUpdate, setNeedsUpdate] = useState(false);
+    const [currentName, setCurrentName] = useState('');
         
     useEffect(() => {
 
@@ -44,7 +45,9 @@ export const AuthProvider = ({ children }) => {
             isAuthenticated,
             setIsAuthenticated,
             needsUpdate, 
-            setNeedsUpdate
+            setNeedsUpdate,
+            currentName,
+            setCurrentName
         }}>
             {children}
         </AuthContext.Provider>

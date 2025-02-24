@@ -1,8 +1,10 @@
 
 
 import { Link, useLocation } from "react-router-dom"
-import { useEffect, useState, Suspense } from "react"
+import { Suspense } from "react"
 import { lazy } from 'react'
+import { useAuth } from "../authContext"
+
 const SearchBar = lazy(() => import('../../components/SearchBar'))
 
 
@@ -11,12 +13,7 @@ const Menu = () => {
     const location = useLocation()
 
     //get user name
-    const [name, setName] = useState('')
-
-    useEffect(() => {
-        const userName = localStorage.getItem('name')
-        setName(userName)
-    }, [])
+    const { currentName } = useAuth();
 
 
     return (
@@ -28,7 +25,7 @@ const Menu = () => {
                 </svg>
             </Link>
 
-            <p className={`${location.pathname === '/compte' ? 'w-full duration-500 delay-300 transition-all mr-2 opacity-100 pointer-events-auto' : 'w-0 opacity-0 pointer-events-none duration-300 transition-all'} text-orange whitespace-nowrap`}>مرحبا، {name}</p>
+            <p className={`${location.pathname === '/compte' ? 'w-full duration-500 delay-300 transition-all mr-2 opacity-100 pointer-events-auto' : 'w-0 opacity-0 pointer-events-none duration-300 transition-all'} text-orange whitespace-nowrap`}>مرحبا، {currentName}</p>
 
             <Link to="/notifications">
                 <svg className={`${location.pathname === "/notifications" && "text-orange"} mr-6 cursor-pointer hover:text-orange duration-300`} width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">

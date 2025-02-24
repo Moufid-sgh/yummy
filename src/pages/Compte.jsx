@@ -5,7 +5,8 @@ import { useAuth } from "@/components/authContext"
 
 const Page = () => {
 
-    const { setIsAuthenticated } = useAuth();
+
+    const { setIsAuthenticated, currentName, setCurrentName } = useAuth();
 
     const navigate = useNavigate()
 
@@ -15,7 +16,6 @@ const Page = () => {
     const nameRef = useRef()
 
     const [name, setName] = useState('')
-    const [currentName, setCurrentName] = useState('')
     const [phone, setPhone] = useState('')
 
     useEffect(() => {
