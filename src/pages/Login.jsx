@@ -87,13 +87,13 @@ const Page = () => {
             <form dir="rtl" className="mt-8 w-full flex justfiy-start">
                 <section className="lg:w-72">
                     <div className="relative mt-5">
-                        <label className="text-[#262F82]" htmlFor="number">رقم الجوال Ooredoo</label>
+                        <label className="text-[#262F82]" htmlFor="number">رقم الجوال أورنج</label>
                         <input
                             id="number"
                             type="number"
                             name="phone_number"
                             onChange={(e) => setPhone(e.target.value)}
-                            placeholder="رقم الجوال Ooredoo"
+                            placeholder="رقم الجوال أورنج"
                             className="bg-[#007AFF0D] border border-[#262F82] rounded-[3px] py-3 px-4 mt-1 w-full outline-none focus:ring-[0.8px] focus:ring-ringblue"
                         />
                         <svg className="absolute left-4 top-[45px] text-[#262F82] size-4" width="12" height="19" viewBox="0 0 12 19" fill="#262F82" xmlns="http://www.w3.org/2000/svg">

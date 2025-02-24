@@ -18,7 +18,6 @@ import YummyTerms from './pages/Yummy_terms';
 
 
 
-
 //protect route
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -43,7 +42,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <ProtectedRoute><Home /></ProtectedRoute>
+        element: <Home />
       },
       {
         path: 'compte',
@@ -59,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'category/:category',
-        element: <ProtectedRoute><Category /></ProtectedRoute>
+        element: <Category />
       },
       {
         path: 'recipe/:id',
